@@ -9,6 +9,9 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "ant-design-vue": "^1.1.7",
+    "file-saver": "^2.0.0-rc.4",
+    "lodash": "^4.17.11",
     "vue": "^2.5.17"
   },
   "devDependencies": {
