@@ -4,8 +4,8 @@ import {
 import App from '@/App.vue'
 
 describe('App.vue', () => {
-  it('renders HelloWorld', () => {
+  it('renders RandomPhoneNumber', () => {
     const wrapper = shallowMount(App)
-    expect(wrapper.find('.hello')).toBeTruthy()
+    expect(wrapper.find('.layout')).toBeTruthy()
   })
 })
