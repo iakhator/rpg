@@ -1,7 +1,10 @@
-process.env.VUE_CLI_BABEL_TARGET_NODE = true
-process.env.VUE_CLI_BABEL_TRANSPILE_MODULES = true
 
 module.exports = {
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'src/**/*.{js,vue}',
+    '!src/main.js' // No need to cover bootstrap file
+  ],
   moduleFileExtensions: [
     'js',
     'jsx',
@@ -22,12 +25,6 @@ module.exports = {
   testMatch: [
     '**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'
   ],
-  collectCoverageFrom: [
-    'src/**/*.{js,vue}',
-    '!src/**/*.spec.js',
-    '!src/main.js',
-    '!src/router/index.js',
-    '!**/node_modules/**'
-  ],
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
   testURL: 'http://localhost/'
 }
