@@ -3,7 +3,8 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{js,vue}',
-    '!src/main.js' // No need to cover bootstrap file
+    '!src/main.js', // No need to cover bootstrap file
+    '!**/node_modules/**'
   ],
   moduleFileExtensions: [
     'js',
@@ -25,6 +26,6 @@ module.exports = {
   testMatch: [
     '**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'
   ],
-  transformIgnorePatterns: ['<rootDir>/node_modules/'],
+  transformIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/node_modules/(?!(babel-jest|jest-vue-preprocessor)/)'],
   testURL: 'http://localhost/'
 }

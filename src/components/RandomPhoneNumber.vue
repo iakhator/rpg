@@ -1,5 +1,5 @@
 <template>
-  <a-layout id="components-layout-demo-top" class="layout">
+    <a-layout id="components-layout-demo-top" class="layout">
     <a-layout-header>
       <div class="logo">
         <h2>Phone Number Generator</h2>
@@ -25,6 +25,7 @@
             type="primary"
             @click="generatePhone"
             size="large"
+            class="btn-generate"
           >Generate Phone Numbers</a-button>
         </div>
         <div v-if="numberSize">
@@ -70,14 +71,13 @@ export default {
   methods: {
     generateRandomNumber (n) {
       if (n > this.max) {
-        return this.genarateRandomNumber(this.max)
+        return this.generateRandomNumber(this.max)
       }
       return Math.floor(
         Math.pow(10, n - 1) + Math.random() * 9 * Math.pow(10, n - 1)
       )
     },
     generatePhone () {
-      this.phoneNumbers = []
       for (let i = 0; i < this.value; i++) {
         if (
           _.findIndex(this.phoneNumbers, {
