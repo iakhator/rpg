@@ -12,6 +12,13 @@
   - Users can sort phone numbers generated in `Ascending or Descending` order by `phoneNo`.
   - Users can save phone numbers generated to local computer as a `JSON` 
 
+## Development
+This Application is built with the following technologies;
+
+- EcmaScript6 (ES6)
+- [Vuejs](https://vuejs.org)
+- [Ant-design-vue](https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce/)
+
 ### Compiles for development/Local
 ```
 npm run serve
