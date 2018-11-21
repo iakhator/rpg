@@ -4,7 +4,6 @@ import {
   createLocalVue
 } from '@vue/test-utils'
 import Antd from 'ant-design-vue'
-import sinon from 'sinon'
 import RandomPhoneNumber from '@/components/RandomPhoneNumber'
 import RandomNumberDisplay from '@/components/RandomNumberDisplay'
 
