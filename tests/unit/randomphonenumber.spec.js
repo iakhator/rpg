@@ -172,4 +172,47 @@ describe('RandomNumberdisplay', () => {
     btnNumbers.trigger('click')
     expect(savePhoneNumbers).toBeCalledWith(mockValues)
   })
+
+  it('should return minimum and maximum number', () => {
+    const mockValues = [{
+      id: 1,
+      phoneNo: '08074656332'
+    }, {
+      id: 2,
+      phoneNo: '070763535343'
+    }]
+
+    const wrapper = mount(RandomPhoneNumber, {
+      localVue,
+      sync: false,
+      data () {
+        return {
+          phoneNumbers: mockValues
+        }
+      }
+    })
+    expect(wrapper.vm.getMinimumNumber).toEqual(mockValues[1].phoneNo)
+    expect(wrapper.vm.getMaximumNumber).toEqual(mockValues[0].phoneNo)
+  })
+
+  xit('should return minimum and maximum number', () => {
+    // const mockValues = [{
+    //   id: 1,
+    //   phoneNo: '08074656332'
+    // }, {
+    //   id: 2,
+    //   phoneNo: '070763535343'
+    // }]
+
+    const wrapper = mount(RandomPhoneNumber, {
+      localVue,
+      sync: false,
+      data() {
+        return {
+          phoneNumbers: []
+        }
+      }
+    })
+    console.log(wrapper.vm.compareValues())
+  })
 })
