@@ -6,7 +6,7 @@
     <div class="btn-sort">
       <a-button class="asc" type="primary" @click="sortByAsc">Sort in Asc</a-button>
       <a-button class="desc" type="primary" @click="sortByDesc">Sort in Desc</a-button>
-      <a-button type="primary" @click="savePhoneNumbers(phoneNumbers);"
+      <a-button type="primary" class="saveNumbers" @click="savePhoneNumbers(phoneNumbers);"
         >Save Numbers</a-button
       >
     </div>
