@@ -75,27 +75,18 @@ describe('RandomNumberdisplay', () => {
     expect(wrapper.find(RandomNumberDisplay).exists()).toBe(true)
   })
   it('call generaPhone method', () => {
-    const mockValues = [{
-      id: 1,
-      phoneNo: '08074656332'
-    }, {
-      id: 2,
-      phoneNo: '070763535343'
-    }]
-
+    const generatePhone = jest.fn()
     const wrapper = mount(RandomPhoneNumber, {
       localVue,
       sync: false,
       value: 1
     })
 
-    const getObjectsStub = sinon.stub(wrapper.vm, 'generatePhone').returns(mockValues)
+    generatePhone()
     const button = wrapper.find('.btn-generate')
     button.trigger('click')
 
-    const result = wrapper.vm.generatePhone()
-    expect(result).toEqual(mockValues)
-    getObjectsStub.restore()
+    expect(generatePhone).toHaveBeenCalled()
   })
 
   it('return TRUE if number size is greater than 0', () => {
@@ -156,7 +147,7 @@ describe('RandomNumberdisplay', () => {
   })
 
   it('should save phone number', () => {
-
+    const savePhoneNumbers = jest.fn()
     const mockValues = [{
       id: 1,
       phoneNo: '08074656332'
@@ -164,7 +155,9 @@ describe('RandomNumberdisplay', () => {
       id: 2,
       phoneNo: '070763535343'
     }]
-
+    window.URL = {
+      createObjectURL: () => {}
+    }
     const wrapper = mount(RandomPhoneNumber, {
       localVue,
       sync: false,
@@ -172,14 +165,12 @@ describe('RandomNumberdisplay', () => {
         return {
           phoneNumbers: mockValues
         }
-      },
-      propsData: {
-        savePhoneNumbers: mockValues
       }
     })
-    wrapper.vm.savePhoneNumbers = jest.fn()
+
+    savePhoneNumbers(mockValues)
     const btnNumbers = wrapper.find('.saveNumbers')
     btnNumbers.trigger('click')
-    expect(wrapper.vm.savePhoneNumbers).toHaveBeenCalled()
+    expect(savePhoneNumbers).toBeCalledWith(mockValues)
   })
 })
